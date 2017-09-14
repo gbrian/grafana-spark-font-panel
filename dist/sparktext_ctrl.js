@@ -77,7 +77,7 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
           var _this = _possibleConstructorReturn(this, (SparkTextCtrl.__proto__ || Object.getPrototypeOf(SparkTextCtrl)).call(this, $scope, $injector));
 
           _this.$rootScope = $rootScope;
-
+          var content = '<div class="sparktext-panel">' + '<h3>Stats A</h3>' + '<b>Min:&nbsp;</b><span class="series">#A.min</span>' + '&nbsp;<b>Max:&nbsp;</b><span class="series">#A.max</span>' + '&nbsp;<b>Avg:&nbsp;</b><span class="series">#A.avg</span>' + '<span class="spark-bar-medium series">' + '<span class="orange-red-text">#A.min{#A.data}#A.max</span>' + '</span>' + '<h3>Usage</h3>' + '<span class="spark-bar-medium series"><span class="green-text">{#A.data}</span></span>&nbsp;' + '<span class="spark-bar-narrow series"><span class="orange-red-text">{#A.data}</span></span>&nbsp;' + '<span class="spark-bar-thin series"><span class="purple-text">{#A.data}</span></span>&nbsp;' + '<span class="spark-dot-line-medium series"><span class="grey-text-1">{#A.data}</span></span>&nbsp;' + '<span class="spark-dot-medium series"><span class="blue-text">{#A.data}</span></span>&nbsp;' + '<span class="spark-dot-small series"><span style="color:#A.color">{#A.data}</span></span>&nbsp;' + '<p>Plugin works with html.</p>' + '<p><i>Syntax:</i></p> ' + '<div style="' + '    padding: 4px;' + '    background-color: gainsboro;' + '    color: black;' + '    margin-bottom: 10px;' + '  ">' + '&lt;b&gt;Min: &lt;/b&gt;&lt;span class=&quot;series&quot;&gt;#A.min&lt;/span&gt;<br/>' + '</div>' + 'Where <b>class="series"</b> defines an element with data replacemnets and <b>#A.max</b> will be replaced by the metric <i>max</i>' + 'from series <i>A</i>.<br>' + '<i>#A.data</i> becomes all values in csv format scaled to 0 - 100. ex: <i>{#A.data}</i> results in <i>{10,23,45,67}</i>' + 'If you need raw data use <i>datapoints</i> instead.' + '</div>';
           var panelDefaults = {
             pieType: 'pie',
             legend: {
@@ -96,6 +96,7 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
             valueName: 'current',
             strokeWidth: 1,
             fontSize: '80%',
+            content: content,
             combine: {
               threshold: 0.0,
               label: 'Others'
@@ -116,7 +117,7 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
         _createClass(SparkTextCtrl, [{
           key: 'onInitEditMode',
           value: function onInitEditMode() {
-            this.addEditorTab('Options', 'public/plugins/grafana-spark-font-panel/editor.html', 2);
+            this.addEditorTab('Template', 'public/plugins/grafana-spark-font-panel/editor.html', 2);
             this.unitFormats = kbn.getUnitFormats();
           }
         }, {

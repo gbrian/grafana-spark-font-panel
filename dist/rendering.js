@@ -6,20 +6,8 @@ System.register(['lodash', 'jquery', 'jquery.flot', 'jquery.flot.pie'], function
   var _, $;
 
   function link(scope, elem, attrs, ctrl) {
-    var data, panel;
+    var data, panel, series;
     elem = elem.find('.sparktext-panel');
-    var seriesRe = /#([A-Z])\./g;
-    var series = elem.find('.series').map(function (i, el) {
-      var serieIds = {},
-          m;
-      while (m = seriesRe.exec(el.innerHTML)) {
-        serieIds[m[1]] = null;
-      }return {
-        el: el,
-        pattern: el.innerHTML,
-        serieIds: Object.keys(serieIds)
-      };
-    }).toArray();
     function parseSparkText(data) {
       var datadic = {};
       data.map(function (d) {
@@ -149,12 +137,27 @@ System.register(['lodash', 'jquery', 'jquery.flot', 'jquery.flot.pie'], function
 
       data = ctrl.data;
       panel = ctrl.panel;
+      $(elem).html(panel.content);
+      var seriesRe = /#([A-Z])\./g;
+      series = elem.find('.series').map(function (i, el) {
+        var serieIds = {},
+            m;
+        while (m = seriesRe.exec(el.innerHTML)) {
+          serieIds[m[1]] = null;
+        }return {
+          el: el,
+          pattern: el.innerHTML,
+          serieIds: Object.keys(serieIds)
+        };
+      }).toArray();
 
       // UGLY: series refId is not set with the data so not 100% this is correct :(
-      for (var c in panel.targets) {
-        data[c].id = panel.targets[c].refId;
-      }console.log(data);
-      if (data.length) parseSparkText(data, panel);
+      var A = 65;
+      data.map(function (d) {
+        return d.id = String.fromCharCode(A++);
+      });
+
+      parseSparkText(data, panel);
 
       if (incrementRenderCounter) {
         ctrl.renderingCompleted();

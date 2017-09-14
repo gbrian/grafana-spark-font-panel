@@ -4,21 +4,8 @@ import 'jquery.flot';
 import 'jquery.flot.pie';
 
 export default function link(scope, elem, attrs, ctrl) {
-  var data, panel;
+  var data, panel, series;
   elem = elem.find('.sparktext-panel');
-  var seriesRe = /#([A-Z])\./g;
-  var series = elem.find('.series')
-            .map((i, el) => {
-              var serieIds = {}, m;
-              while(m = seriesRe.exec(el.innerHTML))
-                serieIds[m[1]] = null;
-              return {      
-                  el:el, 
-                  pattern: el.innerHTML,
-                  serieIds: Object.keys(serieIds)
-              };
-            })
-            .toArray();
   function parseSparkText(data){
     var datadic = {};
     data.map(d => datadic[d.id] = d);
@@ -142,14 +129,26 @@ export default function link(scope, elem, attrs, ctrl) {
 
     data = ctrl.data;
     panel = ctrl.panel;
-
+    $(elem).html(panel.content);
+    var seriesRe = /#([A-Z])\./g;
+    series = elem.find('.series')
+              .map((i, el) => {
+                var serieIds = {}, m;
+                while(m = seriesRe.exec(el.innerHTML))
+                  serieIds[m[1]] = null;
+                return {      
+                    el:el, 
+                    pattern: el.innerHTML,
+                    serieIds: Object.keys(serieIds)
+                };
+              })
+              .toArray();
+  
     // UGLY: series refId is not set with the data so not 100% this is correct :(
-    for(var c in panel.targets)
-      data[c].id = panel.targets[c].refId;
+    var A = 65;
+    data.map(d => d.id = String.fromCharCode(A++));
     
-    console.log(data);
-    if(data.length)
-      parseSparkText(data, panel);
+    parseSparkText(data, panel);
 
     if (incrementRenderCounter) {
       ctrl.renderingCompleted();
