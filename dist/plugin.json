@@ -1,0 +1,37 @@
+{
+  "type": "panel",
+  "name": "Spark Text",
+  "id": "grafana-spark-font-panel",
+
+  "info": {
+    "description": "Spark Text panel for grafana",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "http://grafana.com"
+    },
+    "keywords": ["sparktext", "panel"],
+    "logos": {
+      "small": "src/img/sparktext_logo_small.png",
+      "large": "src/img/sparktext_logo_large.png"
+    },
+    "links": [
+      {"name": "Project site", "url": "https://github.com/grafana/sparktext-panel"},
+      {"name": "Blog Post", "url": "https://blog.raintank.io/friends-dont-let-friends-abuse-pie-charts/"},
+      {"name": "MIT License", "url": "https://github.com/grafana/sparktext-panel/blob/master/LICENSE"}
+    ],
+    "screenshots": [
+      {"name": "Donut!", "path": "src/img/sparktext-donut.png"},
+      {"name": "Legend on the graph", "path": "src/img/sparktext-legend-on-graph.png"},
+      {"name": "Legend to the right", "path": "src/img/sparktext-legend-rhs.png"},
+      {"name": "Legend underneath", "path": "src/img/sparktext-legend-under.png"},
+      {"name": "sparktext options", "path": "src/img/sparktext-options.png"}
+    ],
+    "version": "1.1.5",
+    "updated": "2017-06-05"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "3.x 4.x",
+    "plugins": [ ]
+  }
+}

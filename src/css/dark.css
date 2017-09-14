@@ -1,0 +1,87 @@
+.spark-text {
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+
+/* the spark styles */
+
+@font-face {
+  font-family: "spark-bar-medium";
+  src: url(../fonts/Spark-Bar-Medium.otf) format("opentype");
+}
+@font-face {
+	font-family: "spark-bar-narrow";
+	src: url(../fonts/Spark-Bar-Narrow.otf) format("opentype");
+}
+@font-face {
+	font-family: "spark-bar-thin";
+	src: url(../fonts/Spark-Bar-Thin.otf) format("opentype");
+}
+@font-face {
+	font-family: "spark-dot-line-medium";
+	src: url(../fonts/Spark-Dot-line-Medium.otf) format("opentype");
+}
+@font-face {
+	font-family: "spark-dot-medium";
+	src: url(../fonts/Spark-Dot-Medium.otf) format("opentype");
+}
+@font-face {
+	font-family: "spark-dot-small";
+	src: url(../fonts/Spark-Dot-Small.otf) format("opentype");
+}
+
+.spark-standfirst,
+.spark-bar-medium,
+.spark-bar-narrow,
+.spark-bar-thin,
+.spark-dot-medium,
+.spark-dot-small,
+.spark-line-medium {
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+
+.spark-standfirst,
+.spark-bar-medium  {
+	font-family: "spark-bar-medium";
+	letter-spacing: 0em;
+}
+.spark-bar-narrow  {
+	font-family: "spark-bar-narrow";
+	letter-spacing: 0em;
+}
+.spark-bar-thin    {
+	font-family: "spark-bar-thin";
+	letter-spacing: 0em;
+}
+.spark-dot-medium  {
+	font-family: "spark-dot-medium";
+	letter-spacing: 0em;
+}
+.spark-dot-line-medium  {
+	font-family: "spark-dot-medium";
+	letter-spacing: 0em;
+}
+.spark-dot-small  {
+	font-family: "spark-dot-small";
+	letter-spacing: 0em;
+}
+.spark-line-medium {
+	font-family: "spark-line-medium";
+	letter-spacing: 0em;
+}
+
+.accent-color-text   {color:gainsboro;}
+.red-text            {color:red;}
+.blue-text           {color:blue;}
+.green-text          {color:green;}
+.purple-text         {color:#6b1ed9;}
+.orange-red-text     {color:#ff4628;}
+
+.grey-text-1         {color: #888;}
+.grey-text-2         {color: #aaa;}
+.grey-text-3         {color: #ccc;}
